@@ -22,4 +22,4 @@ departmentSchema.pre('save', next => {
     next();
 });
 
-module.exports = mongoose.model("tbt_departments", departmentSchema);
+module.exports = mongoose.model("departments", departmentSchema);

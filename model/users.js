@@ -26,4 +26,4 @@ userSchema.pre('save', next => {
     next();
 });
 
-module.exports = mongoose.model("tbt_users", userSchema);
+module.exports = mongoose.model("users", userSchema);
