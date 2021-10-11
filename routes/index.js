@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const routerUser = require('./user');
 
-router.get('/', (req, res) => res.send({message: 'Hello Api'}, 503));
-router.get('/api/', (req, res) => res.send({message: 'Hello Api'}, 503));
-router.get('/api/v1/', (req, res) => res.send({message: 'Hello Apiv1.'}, 200));
+router.get('/', (req, res) => res.status(503).send({message: 'Hello Api'}));
+router.use('/user', routerUser);
 
 module.exports = router
