@@ -4,12 +4,13 @@ const userSchema = new mongoose.Schema({
     first_name: { type: String, default: null },
     last_name: { type: String, default: null },
     email: { type: String, unique: true, trim: true },
-    password: { type: String, trim: true, select: false },
+    password: { type: String, trim: true },
     token: { type: String, select: false },
-    is_admin: {type: Boolean, default: false},
-    is_approve: {type: Boolean, default: false},
+    is_admin: { type: Boolean, default: false },
+    is_approve: { type: Boolean, default: false },
     avatar: { type: String, trim: true, default: "https://i.pravatar.cc/128" },
-    mail_to: { type: String, unique: true, trim: true },
+    department: { type: mongoose.Schema.Types.ObjectId, ref: 'departments' },
+    is_activate: { type: Boolean, default: false },
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now },
 }, {
@@ -25,4 +26,4 @@ userSchema.pre('save', next => {
     next();
 });
 
-module.exports = mongoose.model("user", userSchema);
+module.exports = mongoose.model("tbt_users", userSchema);
